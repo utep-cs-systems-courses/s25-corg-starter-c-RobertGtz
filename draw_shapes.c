@@ -25,4 +25,24 @@ void print_triangle(int leftCol, int size)
     putchar('\n');
   }
 }
-
+//prints a arrow, I use previes methods to create mine
+void print_arrow(int leftCol, int size)
+{
+  int i, j;
+  int endCol = leftCol + size; //set the space for the poity part start
+  int sizeMid = size/2;
+  for (int row = 0; row < size + leftCol; row++){ //arrow + leftCol since the shaft need addtional
+    int col = 0;
+    int midCol = size + endCol/2, maxCol = endCol + row -1, minCol = endCol - row + size; //midCol to set the poit of the arrow
+    for (       ; col < size; col++) putchar(' ');
+    for (       ; col < maxCol && row<=sizeMid; col++) putchar('*');
+    if (col==midCol){ //of we find the poit of the arrow we put the shaft
+	putchar('\n');
+	int col3 = 0;
+	for (; col3 < leftCol; col3++) putchar(' ');
+	for (       ; col3 < maxCol;  col3++) putchar('*');
+    }
+    for (       ; col < minCol && row>=sizeMid; col++) putchar('*');
+    putchar('\n');
+  }
+}
